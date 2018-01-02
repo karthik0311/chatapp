@@ -9,7 +9,8 @@ import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
 import { config } from './app.firebaseconfig';
 import { AuthProvider } from '../providers/auth/auth';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { UserProvider } from '../providers/user/user';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {tabsPlacement: 'top'}),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule
     
@@ -33,7 +34,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    AngularFireAuth,
+    UserProvider
   ]
 })
 export class AppModule {}

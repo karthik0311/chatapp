@@ -20,9 +20,12 @@ signin (){
   //signing authentication from providers
   this.authservice.login(this.credentials).then((res: any)=>{
     if (!res.code)
-    this.navCtrl.setRoot('Tabspage');
+    this.navCtrl.setRoot('TabPage');
     else
     alert(res);
   })
+}
+signup(){
+  this.navCtrl.push('SignupPage');
 }
 }
