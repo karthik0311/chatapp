@@ -34,11 +34,14 @@ newuser = {
    }
    else {
    let loader = this.loadingctrl.create({
-     content: 'waitpannuvarum'
+     content: 'please wait'
    });
    loader.present();
   this.userservice.adduser(this.newuser).then((res: any) => {
+    console.log("Am inside singnup");
+    console.log(res);
     loader.dismiss();
+  
    if (res.success)
    this.navCtrl.push(ProfilepicPage);
    else
