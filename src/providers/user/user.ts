@@ -74,5 +74,56 @@ firedata = firebase.database().ref('/chatusers');
     })
     return promise;
   }
+
+  getuserdetails(){
+    var promise = new Promise((resolve, reject) => {
+      this.firedata.child(firebase.auth().currentUser.uid).once('value', (snapshot) => {
+        console.log("am inside data");
+        resolve(snapshot.val());
+      }).catch((err) => {
+        reject(err);
+      })
+    })
+    return promise;
+  }
+  updatedisplayname(newname) {
+    var promise = new Promise ((resolve, reject) =>
+  {
+    this.afireauth.auth.currentUser.updateProfile ({
+      displayName: newname,
+      photoURL: this.afireauth.auth.currentUser.photoURL
+     }).then(() => {
+       this.firedata.child(firebase.auth().currentUser.uid).update({
+         displayName : newname,
+         photoURL: this.afireauth.auth.currentUser.uid
+       }).then(() => {
+    resolve({ success: true });
+       }).catch((err) => {
+         reject(err);
+ 
+       })
+     }).catch((err) =>{
+       reject(err);
+     })
+  })
+    return promise;
+  }
+
+  getallusers(){
+    var promise = new Promise((resolve, reject) => {
+      this.firedata.orderByChild('uid').once('value', (snapshot) => {
+        //getting data from and pushing into temparr
+        let userdata = snapshot.val();
+        let temparr = [];
+        for (var key in userdata) {
+          temparr.push(userdata[key]);
+        }
+        resolve(temparr);
+      }).catch((err) =>{
+        reject(err);
+      })
+    })
+    return promise;
+  }
 }
 

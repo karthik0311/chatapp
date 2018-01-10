@@ -26,9 +26,10 @@ export class PasswordresetPage {
         alert.setTitle('Email Sent');
         alert.setSubTitle('Please Follow the instruction');
       }
-      else {
-        alert.setTitle('Failed');
-      }
+     
+    }).catch((err) =>{
+      alert.setTitle('failed');
+      alert.setSubTitle(err);
     })
   }
 
