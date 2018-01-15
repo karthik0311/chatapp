@@ -16,6 +16,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { UserProvider } from '../providers/user/user';
 import { ProfilepicPage } from '../pages/profilepic/profilepic';
 import { ImghandlerProvider } from '../providers/imghandler/imghandler';
+import { RequestsProvider } from '../providers/requests/requests';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ImghandlerProvider } from '../providers/imghandler/imghandler';
     AuthProvider,
     AngularFireAuth,
     UserProvider,
-    ImghandlerProvider
+    ImghandlerProvider,
+    RequestsProvider
   ]
 })
 export class AppModule {}
