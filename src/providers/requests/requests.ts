@@ -18,7 +18,9 @@ export class RequestsProvider {
        sender: req.sender
      }).then(() => {
        resolve(true);
-     })//catch need to come here
+     }).catch((err) => {
+       reject(err);
+     })
     })
     return promise;
      }
@@ -58,8 +60,12 @@ acceptrequest(buddy){
         }).catch((err) => {
           reject(err);
         })
-      })///catch need to come here
-    })///catch need to come here
+      }).catch((err) => {
+        reject(err);
+      })
+    }).catch((err) => {
+      reject(err);
+    })
   })
   return promise;
   
