@@ -17,6 +17,8 @@ import { UserProvider } from '../providers/user/user';
 import { ProfilepicPage } from '../pages/profilepic/profilepic';
 import { ImghandlerProvider } from '../providers/imghandler/imghandler';
 import { RequestsProvider } from '../providers/requests/requests';
+import { ChatProvider } from '../providers/chat/chat';
+import { GroupsProvider } from '../providers/groups/groups';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { RequestsProvider } from '../providers/requests/requests';
     AngularFireAuth,
     UserProvider,
     ImghandlerProvider,
-    RequestsProvider
+    RequestsProvider,
+    ChatProvider,
+    GroupsProvider
   ]
 })
 export class AppModule {}
