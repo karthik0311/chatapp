@@ -41,7 +41,7 @@ searchuser(searchbar){
 sendreq(recipient){
  this.newrequest.sender = firebase.auth().currentUser.uid;
  this.newrequest.recipient = recipient.uid;
- if (this.newrequest.sender = this.newrequest.recipient)
+ if (this.newrequest.sender == this.newrequest.recipient)
  alert ('You are your friend always');
  else {
    let successalert = this.alertCtrl.create({

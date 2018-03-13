@@ -17,7 +17,7 @@
    <ion-item-sliding *ngFor="let item of myrequests">
      <ion-item>
        <ion-avatar item-left>
-         <img src="{{item.photoURL}}">
+         <img src="assets\imgs\chatuser.png">
        </ion-avatar>
        <h4>{{item.displayname}}</h4>
      </ion-item>
@@ -35,11 +35,11 @@
   <ion-list-header>
     Friends
   </ion-list-header>
-  <ion-item *ngFor="let Item of myfriends" (click)="buddychat(item)">
+  <ion-item *ngFor="let Item of myfriends" (click)="buddychat(Item)">
     <ion-avatar item-left>
-      <img src={{item.photourl}}>
+      <img src="assets\imgs\chatuser.png">
     </ion-avatar>
-    <h3>{{item.displayname}}</h3>
+    <h3>{{Item.displayname}}</h3>
   </ion-item>
 
   </ion-list>
