@@ -15,11 +15,12 @@ export class BuddychatPage {
   newmessage;
   allmessages = [];
   photoURL;
-  imgornot;
+  imgornot = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public chatservice: ChatProvider, public events: Events,
   public loadingctrl: LoadingController, public imgstore:ImghandlerProvider, public zone: NgZone) {
     this.buddy = this.chatservice.buddy;
-    this.photoURL = firebase.auth().currentUser.photoURL;
+    this.photoURL = "assets\imgs\chatuser.png";
+    // firebase.auth().currentUser.photoURL;
     this.scrollTo();
     this.events.subscribe('newmessage', () => {
       this.allmessages = [];
