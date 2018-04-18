@@ -1,11 +1,12 @@
 import firebase from 'firebase';
 import { Injectable } from '@angular/core';
-
+import {Events } from 'ionic-angular';
 
 @Injectable()
 export class GroupsProvider {
   firegroup = firebase.database().ref('/groups');
-  constructor() {
+  mygroups = [];
+  constructor(public events: Events) {
     
   }
 
@@ -23,5 +24,20 @@ export class GroupsProvider {
     });
     return promise;
   }
-
+getmygroups() {
+  this.firegroup.child(firebase.auth().currentUser.uid).once('value', (snapshot) => {
+    this.mygroups = [];
+    if (snapshot.val() !=null) {
+      var temp = snapshot.val();
+      for (var key in temp){
+        let newgroup = {
+          groupName: key,
+          groupimage: temp[key].groupimage
+        }
+        this.mygroups.push(newgroup);
+      }
+    }
+    this.events.publish('newgroup');
+  })
+}
 }

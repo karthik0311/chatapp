@@ -22,7 +22,11 @@ export class NewgroupPage {
     console.log('ionViewDidLoad NewgroupPage');
   }
   creategroup(){
-
+  this.groupservice.addgroup(this.newgroup).then(() => {
+    this.navCtrl.pop();
+  }).catch((err) => {
+    alert(JSON.stringify(err));
+  })
   }
   chooseimage(){
     if (this.newgroup.groupName == 'GroupName'){
@@ -48,6 +52,8 @@ export class NewgroupPage {
     }
    
   }
+
+  
   editgroupname(){
     let alert =  this.alertctrl.create({
       title: 'Edit Group Name',

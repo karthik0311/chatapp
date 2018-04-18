@@ -55,6 +55,6 @@ export class ChatsPage {
   }
   buddychat(buddy) {
     this.chatservice.initializebuddy(buddy);
-    this.navCtrl.push('buddychatPage');
+    this.navCtrl.push('BuddychatPage');
   }
 }
