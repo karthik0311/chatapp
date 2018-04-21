@@ -9,5 +9,8 @@ import { NewgroupPage } from './newgroup';
   imports: [
     IonicPageModule.forChild(NewgroupPage),
   ],
+  exports: [
+    NewgroupPage
+  ]
 })
 export class NewgroupPageModule {}

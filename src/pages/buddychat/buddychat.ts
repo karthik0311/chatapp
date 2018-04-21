@@ -21,6 +21,7 @@ export class BuddychatPage {
     this.buddy = this.chatservice.buddy;
     this.photoURL = "assets\imgs\chatuser.png";
    // this.photoURL = firebase.auth().currentUser.photoURL;
+    // firebase.auth().currentUser.photoURL;
     this.scrollTo();
     this.events.subscribe('newmessage', () => {
       this.allmessages = [];

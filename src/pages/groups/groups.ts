@@ -24,6 +24,10 @@ export class GroupsPage {
     {
       loader.dismiss();
       this.allmygroups = this.groupservice.mygroups;
+      console.log("Group name");
+      console.log(this.allmygroups);
+      
+      
     })
      }
 
